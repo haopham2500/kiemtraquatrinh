@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lập trình web - Đăng nhập</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index">Home</a> | 
+            <a href="login"><b>Đăng nhập</b></a> | 
+            <a href="register">Đăng ký</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Màn hình đăng nhập</h2>
+            <form>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text">
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <input type="password">
+                </div>
+                <div class="options">
+                    <input type="checkbox"> Ghi nhớ đăng nhập
+                </div>
+                <div class="actions">
+                    <a href="#" class="link-blue">Quên mật khẩu</a>
+                    <button type="submit" class="btn-blue">Đăng nhập</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        Lập trình web @01/2024
+    </footer>
+</body>
+</html>
