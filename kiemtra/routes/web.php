@@ -1,33 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CrudUserController;
 
+// Route cho trang Đăng ký
+Route::get('register', [CrudUserController::class, 'createUser'])->name('user.createUser');
+Route::post('register', [CrudUserController::class, 'postUser'])->name('user.postUser');
 
-// 2. Trang Đăng nhập (Login)
-Route::get('/login', function () {
-    return view('crud_user.login');
-})->name('login');
+// Route cho Đăng nhập
+Route::get('login', [CrudUserController::class, 'login'])->name('login');
+Route::post('login', [CrudUserController::class, 'authUser'])->name('user.authUser');
 
-// 3. Trang Đăng ký (Register)
-Route::get('/register', function () {
-    return view('crud_user.register');
-});
-
-// 4. Trang Danh sách người dùng (List)
-Route::get('/users', function () {
-    return view('crud_user.list');
-});
-
-// 5. Trang Xem chi tiết (View)
-Route::get('/user/detail', function () {
-    return view('crud_user.view');
-});
-
-// 6. Trang Chỉnh sửa (Update)
-Route::get('/user/edit', function () {
-    return view('crud_user.update');
-});
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('list', [CrudUserController::class, 'listUser'])->name('user.list');
+Route::get('signout', [CrudUserController::class, 'signOut'])->name('signout');
