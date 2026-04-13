@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -18,17 +17,17 @@
     <main>
         <div class="container">
             <h2>Màn hình đăng nhập</h2>
-            <form>
-                <div class="form-group">
+            <form action="{{ route('user.authUser') }}" method="POST">
+                @csrf <div class="form-group">
                     <label>Username</label>
-                    <input type="text">
+                    <input type="text" name="username" required>
                 </div>
                 <div class="form-group">
                     <label>Mật khẩu</label>
-                    <input type="password">
+                    <input type="password" name="password" required>
                 </div>
                 <div class="options">
-                    <input type="checkbox"> Ghi nhớ đăng nhập
+                    <input type="checkbox" name="remember"> Ghi nhớ đăng nhập
                 </div>
                 <div class="actions">
                     <a href="#" class="link-blue">Quên mật khẩu</a>

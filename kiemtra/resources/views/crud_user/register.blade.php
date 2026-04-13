@@ -13,16 +13,25 @@
     <main>
         <div class="container">
             <h2>Màn hình đăng ký</h2>
-            <form>
-                <div class="form-group"><label>Username</label><input type="text"></div>
-                <div class="form-group"><label>Mật khẩu</label><input type="password"></div>
-                <div class="form-group"><label>Nhập lại mật khẩu</label><input type="password"></div>
-                <div class="form-group"><label>Email</label><input type="email"></div>
-                <div class="actions" style="justify-content: flex-end;">
-                    <a href="login.html" class="link-blue" style="margin-right: 20px;">Đã có tài khoản</a>
-                    <button type="submit" class="btn-blue">Đăng ký</button>
-                </div>
-            </form>
+            <form action="{{ route('user.postUser') }}" method="POST">
+    @csrf
+    <div class="form-group">
+        <label>Username</label>
+        <input type="text" name="name"> </div>
+    <div class="form-group">
+        <label>Mật khẩu</label>
+        <input type="password" name="password"> </div>
+    <div class="form-group">
+        <label>Nhập lại mật khẩu</label>
+        <input type="password"> </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email"> </div>
+    <div class="actions" style="justify-content: flex-end;">
+        <a href="login" class="link-blue" style="margin-right: 20px;">Đã có tài khoản</a>
+        <button type="submit" class="btn-blue">Đăng ký</button>
+    </div>
+</form>
         </div>
     </main>
     <footer>Lập trình web @01/2024</footer>
