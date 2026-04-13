@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Hash;
-use Session;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class CrudUserController extends Controller
 {
@@ -64,4 +64,39 @@ class CrudUserController extends Controller
         Auth::logout();
         return redirect('login');
     }
+    // 1. Hàm Xem chi tiết
+public function viewUser($id) {
+    $user = User::findOrFail($id);
+    return view('crud_user.view', compact('user'));
+}
+
+// 2. Hàm Hiện form sửa
+public function editUser($id) {
+    $user = User::findOrFail($id);
+    return view('crud_user.edit', compact('user'));
+}
+
+// 3. Hàm Lưu dữ liệu đã sửa
+public function updateUser(Request $request, $id) {
+    $user = User::findOrFail($id);
+    
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email,'.$id,
+    ]);
+
+    $user->update([
+        'name' => $request->name,
+        'email' => $request->email,
+    ]);
+
+    return redirect()->route('user.list')->with('success', 'Cập nhật thành công!');
+}
+public function deleteUser($id) {
+    $user = User::findOrFail($id);
+    $user->delete();
+    
+    // Xóa xong thì quay về trang danh sách kèm thông báo
+    return redirect()->route('user.list')->with('success', 'Đã xóa người dùng thành công!');
+}
 }
