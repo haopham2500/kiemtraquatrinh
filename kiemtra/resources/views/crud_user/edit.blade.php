@@ -23,7 +23,7 @@
 
             <div style="text-align: right;">
                 <a href="{{ route('user.list') }}" style="margin-right: 10px;">Hủy bỏ</a>
-                <button type="submit" class="btn-blue" style="padding: 8px 20px; background: blue; color: white; border: none; cursor: pointer;">Lưu thay đổi</button>
+                <button type="submit" class="btn-blue" style="padding: 8px 20px; background: blue; color: white; border: none; cursor: pointer;">Lưu thay đổi!</button>
             </div>
         </form>
     </div>
